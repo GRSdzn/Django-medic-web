@@ -1,0 +1,51 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}
+Все болезни
+{% endblock title %}
+
+{% block content %}
+    <!-- header СЕКЦИЯ -->
+        <header class="intro">
+           <section class="header__container">
+            <div class="intro-top__container">
+                <div class="intro__container">
+                      <div class="intro__top">
+                          <div class="intro__left" >
+                            <a href="{% url 'home' %}"><img class="intro__icon-left" src="{% static 'img/logotip.svg' %}" alt=""></a>
+                            <a href="{% url 'home' %}" class="intro__shref" >Главная</a>
+                          </div>
+                      <nav>
+                        <div class="intro__right-row">
+                          <a class="intro__shref"  href="{% url 'home' %}">О нас</a>
+                          <a class="intro__shref"  href="{% url 'home' %}">Контакты</a>
+                        </div>
+                      </nav>
+                  </div>
+                </div>
+          </div>
+           </section>
+        </header>
+<!-- header СЕКЦИЯ -->
+<!-- List Disease -->
+
+<section class="list">
+    <div class="list__title">{{ category_name }}</div>
+    <div class="list__table">
+        {% if diseases %}
+        {% for disease in diseases %}
+        <div class="list__column">
+            <div class="list__text-container">
+                <div class="list__text-link">
+                    <a href="{% url 'disease_detail' disease.id %}" >{{ disease.title }}</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <h2> Пусто </h2>
+        {% endif %}
+
+    </div>
+</section>
+{% endblock content %}

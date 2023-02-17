@@ -1,0 +1,54 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}
+{{ symptom.title }}
+{% endblock title %}
+
+{% block content %}
+    <!-- header СЕКЦИЯ -->
+        <header class="intro">
+           <section class="header__container">
+            <div class="intro-top__container">
+                <div class="intro__container">
+                      <div class="intro__top">
+                          <div class="intro__left" >
+                            <a href="{% url 'home' %}"><img class="intro__icon-left" src="{% static 'img/logotip.svg' %}" alt=""></a>
+                            <a href="{% url 'home' %}" class="intro__shref" >Главная</a>
+                          </div>
+                      <nav>
+                        <div class="intro__right-row">
+                          <a class="intro__shref"  href="{% url 'home' %}">О нас</a>
+                          <a class="intro__shref"  href="{% url 'home' %}">Контакты</a>
+                        </div>
+                      </nav>
+                  </div>
+                </div>
+          </div>
+           </section>
+        </header>
+<!-- header СЕКЦИЯ -->
+<div class="detail">
+    <div class="detail__title">
+        {{ symptom.title }}
+    </div>
+
+    <div class="detail__info">
+        {{ symptom.info }}
+    </div>
+</div>
+<div class="symptom__title">
+    <h1>    Болезни с данным симптомом     </h1>
+</div>
+{% for disease in diseases %}
+
+
+
+<ul class="detail__ul">
+    <li><a class="detail__list" href="{% url 'disease_detail' disease.id %}">{{ disease.title }}</a></li>
+
+</ul>
+
+<br>
+{% endfor %}
+
+{% endblock content %}

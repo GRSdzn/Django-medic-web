@@ -1,0 +1,227 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="{% static 'img/med.ico' %}" sizes="16x16" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Noto+Serif:wght@700&family=Playfair+Display&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Lora:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css_styles/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css_styles/button_up.css' %}">
+    <link rel="stylesheet" href="{% static 'css_styles/detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css_styles/modal_window.css' %}">
+    <script src="https://code.jquery.com/jquery-git.min.js"></script>
+    <script src={% static "js/modal_win.js" %}></script>
+    <script src={% static "js/scroll_to.js" %}></script>
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+</head>
+<body>
+
+
+
+    <!-- Модальное окно -->
+        <div class="modal">
+          <div class="modal__content">
+            <button class="modal__close-button"><img src="{% static 'img/icon_close.svg' %}" width="25" alt=""></button>
+            <!-- Контент модального окна -->
+              <form action="{% url 'send_question' %}" method="post" class="form__title">
+                  {% csrf_token %}
+              <h1 class="title_form">Заполните поля</h1>
+              <div>
+                  <input name="title" class="input__modal" placeholder="Название темы" maxlength="100" required>
+              </div>
+              <div>
+                  <textarea name="question" rows="5" class="input__modal" placeholder="Вопрос" maxlength="420" required></textarea>
+              </div>
+              <div>
+                  <input name="email" type="email" class="input__modal" placeholder="Ваша почта" maxlength="100" required>
+              </div>
+              <div class="warning__msg">
+                  <h6 class="massage__doc">
+                      Ответ на вопрос не заменяет полноценной медицинской консультации и носит информационный характер. Консультант сервиса не в праве ставить диагноз,<br>
+                      назначать лечение, корректировать дозы препаратов. Для постановки точного диагноза и назначения лечения, а также корректировки схемы лечения и подбора<br>
+                      дозы препарата, необходимо обратиться к врачу
+                  </h6>
+              </div>
+              <input type="submit" class="form__button"/>
+             </form>
+          </div>
+        </div>
+    <!-- Модальное окно -->
+
+
+
+
+    <!-- Main Секция -->
+    {% block content %}
+    <!-- header СЕКЦИЯ -->
+        <header class="intro">
+           <section class="header__container">
+                <div class="intro__container">
+                      <div class="intro__top">
+                          <div class="intro__left" >
+                            <a class="intro__icon-href" href="{% url 'home' %}"><img class="intro__icon-left" src="{% static 'img/logotip.svg' %}" alt=""></a>
+                            <a href="{% url 'home' %}" class="intro__shref" >Главная</a>
+                          </div>
+                      <nav>
+                        <div class="intro__right-row">
+                          <a class="intro__shref about__us" href="#about_us">О нас</a>
+                          <a class="intro__shref"  href="#contacts">Контакты</a>
+                        </div>
+                      </nav>
+                  </div>
+                </div>
+           </section>
+        </header>
+    <!-- header СЕКЦИЯ -->
+
+
+    <div class="header ">
+            <div class="item-center">
+                    <div class="item__text-container">
+                <div class="item__title">Медицинский справочник</div>
+                <div class="item__sub-title">Информация написана профессиональными врачами простым и доступным языком. В каждом диагнозе и симптоме вы найдете понятные ответы на вопросы «что делать прямо сейчас и в будущем».</div>
+                </div>
+                <div class="item__button button">
+                    <a id="callback-button" class="header__button">Спросить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Main Секция -->
+
+<!-- Добро пожаловать -->
+    <div class="section-title__description">
+        <div class="main__title-text">
+            <div class="main__title-welcome">
+                <h1 class="title__welcome">Добро пожаловать</h1>
+            </div>
+
+            <div class="main__title-description">
+                <p class="description__info">Постоянной целью нашей медицинской клиники было оказание комплексной первичной медицинской помощи. Когда у вас есть медицинские потребности, вам нужно обратиться к врачу, который выслушает и отреагирует ... опытному специалисту, который знает эту область и может эффективно диагностировать и лечить ваши потребности, а дружелюбный персонал посоветует вам наилучшие способы поддержания и улучшения вашего здоровье.</p>
+            </div>
+        </div>
+    </div>
+<!-- Добро пожаловать -->
+
+ <!-- PRIMER 1 -->
+    <div class="about__us-container" id="about_us">
+        <div class="about__us_section">
+            <div class="about__doctor-cantainer">
+                <img class="about__doctor" src="{% static 'img/back_man.jpg' %}" alt="">
+            </div>
+            <div class="about__us-text">
+                <h1 class="about__us-title">Справочник врача</h1>
+                <p class="about__us-description">Выбор правильной тактики диагностики в соответствии с клиническими рекомендациями <br><br>
+                                                Назначение правильной лекарственной терапии в соответствии с федеральными стандартами медицинской помощи РФ<br><br>
+                                                Учет взаимодействия и побочных явлений лекарственных средств<br><br>
+                                                Контроль динамики состояния пациента самым широким набором инструментов<br><br>
+                </p>
+                <div class="about__us-button-container">
+                    <div class="about__us-button">
+                           <button class="pains__btn"><a class="all__pains" href="{% url 'diseases' %}">Список всех болезней</a></button>
+                           <button class="pains__btn"><a class="all__symptoms"  href="{% url 'symptoms' %}">Список всех симптомов</a></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+<!-- PRIMER -->
+
+
+<!-- CONSULTATION MENU -->
+    <section class="consultation">
+        <div class="consultation__container">
+            <div class="container__text">
+                <div class="consultation__container-title">
+                    <h1 class="about__us-title">Получите онлайн-консультацию</h1>
+                </div>
+                <div class="consultation__container-description">
+                    <p class="consultation__description">В большинстве случаев первичной консультации будет достаточно. В более сложных случаях может потребоваться повторная повторная консультация. Вы можете в любой момент связаться с нашим центром и задать интересующие вас вопросы. Наш профессиональный представитель службы поддержки с удовольствием ответит на ваши вопросы.</p>
+                </div>
+            </div>
+
+            <div class="consultation__container-image">
+                <div class="consultation__image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- CONSULTATION MENU -->
+
+<!--    CONTACTS BLOCK    -->
+    <div class="contacts" id="contacts">
+        <div class="contacts__container-title">
+            <h1 class="contacts__title-text">Контакты</h1>
+        </div>
+        <div class="contacts__container">
+                <div class="contacts__block">
+                    <img src="{% static 'img/address.svg' %}">
+                    <h3 class="contacts__title">Адрес офиса</h3>
+                    <p class="contacts__description">Стачки 184/2</p>
+                </div>
+                <div class="contacts__block">
+                    <img src="{% static 'img/email.svg' %}">
+                    <h3 class="contacts__title">Почта</h3>
+                    <p class="contacts__description">med_spravka@medhelp.com</p>
+                </div>
+                <div class="contacts__block">
+                    <img src="{% static 'img/telephone.svg' %}">
+                    <h3 class="contacts__title">Телефон</h3>
+                    <p class="contacts__description">+7-900-000-00-00</p>
+                </div>
+
+        </div>
+    </div>
+    <!--    CONTACTS BLOCK    -->
+
+
+    {% endblock content%}
+
+
+
+
+<!-- Info Секция -->
+    <div class="warning__content">
+        <div class="warning__text">
+            <p class="warning">
+                Информация, представленная на сайте, носит исключительно информационный характер.
+                При возникновении симптомов какого-либо заболевания необходимо обратиться к врачу.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Footer Секция -->
+        <!-- <div class="wrapper"> -->
+          <footer class="footer">
+            <div class="footer__text-row">
+              <div class="footer__text-column">Справочник Врача
+                2016-2022 © ООО «МИР»</div>
+                <div class="footer__text-column">Страна: Россия
+                  Город: Ростов-На-Дону</div>
+            </div>
+          </footer>
+        <!-- </div> -->
+<!-- Footer Секция -->
+
+
+<!--Подключение js-скрипата -->
+
+    <script type="text/javascript" src={% static "js/scroll_to.js" %} ></script>
+
+</body>
+</html>

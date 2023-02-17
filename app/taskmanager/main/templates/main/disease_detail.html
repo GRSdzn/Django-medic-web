@@ -1,0 +1,84 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}
+{{ disease.title }}
+{% endblock title %}
+
+{% block content %}
+    <!-- header СЕКЦИЯ -->
+        <header class="intro">
+           <section class="header__container">
+            <div class="intro-top__container">
+                <div class="intro__container">
+                      <div class="intro__top">
+                          <div class="intro__left" >
+                            <a href="{% url 'home' %}"><img class="intro__icon-left" src="{% static 'img/logotip.svg' %}" alt=""></a>
+                            <a href="{% url 'home' %}" class="intro__shref" >Главная</a>
+                          </div>
+                      <nav>
+                        <div class="intro__right-row">
+                          <a class="intro__shref"  href="{% url 'home' %}">О нас</a>
+                          <a class="intro__shref"  href="{% url 'home' %}">Контакты</a>
+                        </div>
+                      </nav>
+                  </div>
+                </div>
+          </div>
+           </section>
+        </header>
+<!-- header СЕКЦИЯ -->
+
+
+<div class="detail">
+    <div class="detail__title">
+        {{ disease.title }}
+    </div>
+
+    <div class="detail__info">
+        {{ disease.info }}
+    </div>
+</div>
+
+<div class="list__dtl">
+<div class="disease__title">
+    <h1>    Как проявляется заболевание. Симптомы     </h1>
+</div>
+<p class="disease__description">При данной патологии наблюдаются следующие симптомы:</p>
+</div>
+{% for symptom in symptoms %}
+
+
+<ul class="detail__ul">
+    <li><a class="detail__list" href="{% url 'symptom_detail' symptom.id %}">{{ symptom.title }}</a></li>
+</ul>
+
+<br>
+{% endfor %}
+<div class="disease__title">
+    <h1 class="title__dis">   Причины и факторы риска возникновения заболевания   </h1>
+</div>
+{% for cause in causes %}
+<ul class="detail__ul">
+    <li><a class="detail__list" >{{ cause.title }}</a></li>
+</ul>
+
+<br>
+
+
+
+{% endfor %}
+
+<div class="match__content">
+    <div class="wiki__match">
+        <h1 class="match__title">Болею ли я даным заболеванием?</h1>
+        <p class="match__description">Для того, чтобы определить, болеете ли вы данным заболеванием:</p>
+    </div>
+    <ol class="match__list">
+        <li class="match__li">Сверьте Ваши симптомы с теми, которые в <a class="spisok" href="{% url 'symptoms' %}"> списке </a> <br>Если Вы обнаружили какие-либо из симптомов, то:</li>
+        <li class="match__li">Пройдите доврачебный скрининг. Он поможет иденцифицировать диагноз в кратчайшие сроки, при этом сэкономив ваше время и средства</li>
+        <li class="match__li">Запишитесь к врачу. Он поможет установить диагноз и, при необходимости, назначит лечение</li>
+        <li class="match__li">Так же Вы можете пройти дополнительные методы исследования для подтверждения/опровержения диагноза</li>
+    </ol>
+</div>
+
+{% endblock content %}

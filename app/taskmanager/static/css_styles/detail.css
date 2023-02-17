@@ -1,0 +1,175 @@
+.detail__title {
+    margin-top: 90px;
+    text-align: left;
+    font-size: 50px;
+    color: #4d525c;
+    margin-bottom: 70px;
+}
+
+
+.detail__title:first-letter {
+    color: #83d4d6;
+}
+
+.detail__info {
+    background: #efefef;
+    line-height: 28px;
+    font-family: montserrat;
+    text-align: justify;
+    max-width: 1200px;
+    font-size: 18px;
+    padding: 15px;
+}
+
+
+.disease__description {
+    margin-bottom: 50px;
+    margin-top: -40px;
+    margin-left: 120px;
+}
+
+
+/* ---------------------wiki match content---------------------  */
+
+
+.match__content {
+    color: #4d525c;
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    align-items: flex-start;
+    margin-left: 118px;
+}
+.match__title {
+    margin-bottom: -7px;
+}
+
+li.match__li {
+    margin-bottom: 20px;
+}
+
+ol.match__list {
+    background: #efefef;
+    padding: 25px;
+    font-family: montserrat;
+}
+
+/* ---------------------wiki match content---------------------  */
+
+
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a.detail__info {
+    color: #4d525c;
+    margin-left: 0%;
+    text-decoration: none;
+}
+.disease__title {
+    margin-bottom: 50px;
+    margin-top: 70px;
+    font-size: 16px;
+    color: #4d525c;
+    margin-left: 118px;
+}
+.symptom__title {
+    margin-bottom: 50px;
+    margin-top: 70px;
+    font-size: 16px;
+    color: #4d525c;
+    margin-left: 120px;
+}
+
+h1.title_form {
+    color: #4d525c;
+    margin-bottom: 50px;
+    font-size: 40px;
+}
+
+
+
+/* ------------------Болезни с данным симптомом ------------------*/
+
+a.detail__list {
+    color: #5e9a9d;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Montserrat', 'Inter';
+    transition: .2s;
+}
+
+a.detail__list:hover {
+    color: #557a7e;
+}
+
+
+ul.detail__ul {
+    margin-left: 100px;
+    margin-top: -10px;
+}
+
+/* ------------------ Болезни с данным симптомом ------------------ */
+
+
+a.spisok {
+    color: #03a9f4;
+}
+
+button.alls__btn:hover {
+    box-shadow: 0px 10px 14px -12px #276873;
+}
+
+button.alls__btn {
+    cursor: pointer;
+    transition: .2s;
+    font-size: 15px;
+    font-family: Inter;
+    width: 279px;
+    border-width: 1px;
+    border-color: rgba(144, 180, 195, 1);
+    font-weight: bold;
+    border-top-left-radius: 8px;
+    /* border-top-right-radius: 8px; */
+    /* border-bottom-left-radius: 8px; */
+    border-bottom-right-radius: 8px;
+    background-color: transparent;
+    text-align: center;
+}
+
+
+/* All pains / All symptoms */
+
+
+/*Adaptive design*/
+
+@media screen and (min-width:100px) and (max-width:415px) {
+    .detail{
+    max-width: 30%;
+    margin-left: -5%;
+    }
+
+    ul.detail__ul{
+    margin-left: 3%;
+    max-width: 20%;
+    }
+
+    .list__dtl{
+    max-width: 30%;
+    margin-left: -5%;
+    }
+
+    .match__content {
+    max-width: 21%;
+    margin-left: 3%;
+
+    .title__dis{
+
+    }
+
+}
+/*Adaptive design*/
